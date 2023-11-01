@@ -5,10 +5,11 @@ const {v4:uuidv4}=require("uuid")
 const io=require("socket.io")(server,{
     cors:{origin:"*"}
 })
-const {ExpessPeersServer}=require("peer")
-const peerServer=ExpessPeersServer(server,{
-    debug:true
-})
+const { ExpressPeerServer } = require("peer");
+const peerServer = ExpressPeerServer(server, {
+    debug: true,
+});
+
 app.use("/peerjs",peerServer)
 app.set("view engine","ejs")
 app.use(expess.static("public"))
